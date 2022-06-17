@@ -1,0 +1,33 @@
+config RTL8189FS
+	tristate "Realtek 8189F SDIO WiFi"
+	depends on USB
+	---help---
+	  Help message of RTL8189FS
+
+if RTL8189FS
+
+config RTL8189FS_DEBUG
+	tristate "Realtek 8189FS SDIO WIFI DEBUG LOG"
+	help
+	open debug log
+
+if RTL8189FS_DEBUG
+
+	config RTL8189FS_LOG_LEVEL
+	        int "Realtek RTL8189FS Log Level"
+		range 0 6
+		default 5
+	        help
+		0-none,1-always,2-err,3-warning,4-info,5-debug,6-max
+endif
+
+endif
+
+#
+#config RTL8189FS_LOG
+#	int
+#	range 1 4
+#	default 3
+#	---help---
+#	  Help
+#	tristate "DM9000 support"
